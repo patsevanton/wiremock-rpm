@@ -1,0 +1,10 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/304"
+    },
+    "response": {
+        "status": 304,
+        "body": "304 Not Modified\n"
+    }
+}

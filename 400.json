@@ -1,0 +1,10 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/400"
+    },
+    "response": {
+        "status": 400,
+        "body": "400 Bad Request\n"
+    }
+}
