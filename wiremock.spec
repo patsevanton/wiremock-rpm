@@ -15,6 +15,10 @@ BuildRequires: tree
 # Use systemd for fedora >= 18, rhel >=7, SUSE >= 12 SP1 and openSUSE >= 42.1
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (!0%{?is_opensuse} && 0%{?suse_version} >=1210) || (0%{?is_opensuse} && 0%{?sle_version} >= 120100)
 
+%if %use_systemd
+BuildRequires: systemd
+%endif
+
 %description
 WireMock is a simulator for HTTP-based APIs. Some might consider it a service virtualization tool or a mock server.
 
@@ -25,8 +29,8 @@ curl -L %{url} > wiremock.jar
 ls
 pwd
 tree
-%{__install} -m 0755 -d %{buildroot}/usr/lib/%{name}
-%{__install} -m 755 %{SOURCE0} %{buildroot}/usr/lib/%{name}/%{name}
+%{__install} -m 0755 -d %{buildroot}/usr/lib/%{name}/%{name}
+%{__install} -m 0755 %{SOURCE0} %{buildroot}/usr/lib/%{name}/%{name}
 %{__install} -m 0755 -d %{buildroot}/usr/lib/%{name}/mappings
 cp %{SOURCE1} %{buildroot}/usr/lib/%{name}/mappings
 %if %{use_systemd}
@@ -56,7 +60,7 @@ cp %{SOURCE1} %{buildroot}/usr/lib/%{name}/mappings
 
 %files
 /usr/lib/%{name}/%{name}
-/usr/lib/%{name}/mappings/%{SOURCE1}
+/usr/lib/%{name}/mappings/503.json
 %dir %attr(0775, wiremock, wiremock) /usr/lib/%{name}/%{name}
 %if %{use_systemd}
 %{_unitdir}/%{name}.service
