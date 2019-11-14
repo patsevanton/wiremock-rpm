@@ -1,0 +1,10 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/403"
+    },
+    "response": {
+        "status": 403,
+        "body": "403 Forbidden\n"
+    }
+}

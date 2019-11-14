@@ -1,0 +1,10 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/502"
+    },
+    "response": {
+        "status": 502,
+        "body": "502 Bad Gateway\n"
+    }
+}

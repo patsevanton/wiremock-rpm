@@ -1,0 +1,10 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/408"
+    },
+    "response": {
+        "status": 408,
+        "body": "408 Request Timeout\n"
+    }
+}

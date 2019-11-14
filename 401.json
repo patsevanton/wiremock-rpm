@@ -1,0 +1,10 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/401"
+    },
+    "response": {
+        "status": 401,
+        "body": "401 Unauthorized\n"
+    }
+}

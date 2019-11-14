@@ -1,0 +1,10 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/404"
+    },
+    "response": {
+        "status": 404,
+        "body": "404 Not Found\n"
+    }
+}

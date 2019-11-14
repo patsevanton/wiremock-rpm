@@ -1,0 +1,10 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/500"
+    },
+    "response": {
+        "status": 500,
+        "body": "500 Internal Server Error\n"
+    }
+}

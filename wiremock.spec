@@ -7,7 +7,19 @@ Group:   Development Tools
 License: ASL 2.0
 URL: http://repo1.maven.org/maven2/com/github/tomakehurst/wiremock-standalone/%{version}/wiremock-standalone-%{version}.jar
 Source0: %{name}.service
-Source1: 503.json
+Source1: 204.json
+Source2: 301.json
+Source3: 302.json
+Source4: 304.json
+Source5: 400.json
+Source6: 401.json
+Source7: 403.json
+Source8: 404.json
+Source9: 405.json
+Source10: 408.json
+Source11: 500.json
+Source12: 502.json
+Source13: 503.json
 Requires(pre): /usr/sbin/useradd, /usr/bin/getent, /usr/bin/echo, /usr/bin/chown
 Requires(postun): /usr/sbin/userdel
 BuildRequires: tree
@@ -20,7 +32,8 @@ BuildRequires: systemd
 %endif
 
 %description
-WireMock is a simulator for HTTP-based APIs. Some might consider it a service virtualization tool or a mock server.
+WireMock is a simulator for HTTP-based APIs.
+Some might consider it a service virtualization tool or a mock server.
 
 %prep
 curl -L %{url} > wiremock.jar
