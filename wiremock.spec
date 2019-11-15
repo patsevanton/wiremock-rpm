@@ -1,6 +1,6 @@
 Name:    wiremock
 Version: 2.25.1
-Release: 5
+Release: 6
 Summary: RPM for tool for mocking HTTP services
 
 Group:   Development Tools
