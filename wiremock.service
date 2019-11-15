@@ -6,15 +6,10 @@ After=network.target
 Type=simple
 User=wiremock
 Group=wiremock
-StartLimitBurst=5
-StartLimitInterval=0
-#EnvironmentFile=-/etc/default/wiremock.conf
 ExecStart=/usr/bin/java -jar /usr/lib/wiremock/wiremock.jar
 ExecStop=/bin/kill -s SIGTERM $MAINPID
 ExecReload=/bin/kill -HUP $MAINPID
-#LimitNOFILE=1048576
-#LimitNPROC=1048576
-LimitCORE=infinity
+SuccessExitStatus=143
 
 [Install]
 WantedBy=multi-user.target
