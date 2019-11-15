@@ -1,6 +1,6 @@
 Name:    wiremock
 Version: 2.25.1
-Release: 1
+Release: 2
 Summary: RPM for tool for mocking HTTP services
 
 Group:   Development Tools
@@ -30,8 +30,8 @@ curl -L %{url} > wiremock.jar
 ls
 pwd
 tree
-%{__install} -m 0755 -d %{buildroot}/usr/lib/wiremock/wiremock
-cp wiremock.jar %{buildroot}/usr/lib/wiremock/wiremock
+%{__install} -m 0755 -d %{buildroot}/usr/lib/wiremock
+cp wiremock.jar %{buildroot}/usr/lib/wiremock/wiremock.jar
 %{__install} -m 0755 -d %{buildroot}/usr/lib/wiremock/mappings
 cp %{SOURCE1} %{buildroot}/usr/lib/wiremock/mappings
 %if %{use_systemd}
@@ -60,10 +60,9 @@ cp %{SOURCE1} %{buildroot}/usr/lib/wiremock/mappings
 %endif
 
 %files
-/usr/lib/wiremock/wiremock
+%dir %attr(0775, wiremock, wiremock) /usr/lib/wiremock
 /usr/lib/wiremock/mappings/503.json
-/usr/lib/wiremock/wiremock/wiremock.jar
-%dir %attr(0775, wiremock, wiremock) /usr/lib/wiremock/wiremock
+/usr/lib/wiremock/wiremock.jar
 %if %{use_systemd}
 %{_unitdir}/wiremock.service
 %endif
