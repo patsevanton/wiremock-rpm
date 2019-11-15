@@ -6,7 +6,7 @@ Summary: RPM for tool for mocking HTTP services
 Group:   Development Tools
 License: ASL 2.0
 URL: http://repo1.maven.org/maven2/com/github/tomakehurst/wiremock-standalone/%{version}/wiremock-standalone-%{version}.jar
-Source0: %{name}.service
+Source0: wiremock.service
 Source1: 503.json
 Requires(pre): /usr/sbin/useradd, /usr/bin/getent, /usr/bin/echo, /usr/bin/chown
 Requires(postun): /usr/sbin/userdel
@@ -30,19 +30,19 @@ curl -L %{url} > wiremock.jar
 ls
 pwd
 tree
-%{__install} -m 0755 -d %{buildroot}/usr/lib/%{name}/%{name}
-%{__install} -m 0755 %{SOURCE0} %{buildroot}/usr/lib/%{name}/%{name}
-%{__install} -m 0755 -d %{buildroot}/usr/lib/%{name}/mappings
-cp %{SOURCE1} %{buildroot}/usr/lib/%{name}/mappings
+%{__install} -m 0755 -d %{buildroot}/usr/lib/wiremock/wiremock
+cp wiremock.jar %{buildroot}/usr/lib/wiremock/wiremock
+%{__install} -m 0755 -d %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE1} %{buildroot}/usr/lib/wiremock/mappings
 %if %{use_systemd}
 %{__mkdir} -p %{buildroot}%{_unitdir}
 %{__install} -m644 %{SOURCE0} \
-    %{buildroot}%{_unitdir}/%{name}.service
+    %{buildroot}%{_unitdir}/wiremock.service
 %endif
 
 %pre
 /usr/bin/getent group wiremock > /dev/null || /usr/sbin/groupadd -r wiremock
-/usr/bin/getent passwd wiremock > /dev/null || /usr/sbin/useradd -r -d /usr/lib/%{name} -s /bin/bash -g wiremock wiremock
+/usr/bin/getent passwd wiremock > /dev/null || /usr/sbin/useradd -r -d /usr/lib/wiremock -s /bin/bash -g wiremock wiremock
 
 %post
 %if %use_systemd
@@ -51,7 +51,7 @@ cp %{SOURCE1} %{buildroot}/usr/lib/%{name}/mappings
 
 %preun
 %if %use_systemd
-/usr/bin/systemctl stop %{name}
+/usr/bin/systemctl stop wiremock
 %endif
 
 %postun
@@ -60,9 +60,10 @@ cp %{SOURCE1} %{buildroot}/usr/lib/%{name}/mappings
 %endif
 
 %files
-/usr/lib/%{name}/%{name}
-/usr/lib/%{name}/mappings/503.json
-%dir %attr(0775, wiremock, wiremock) /usr/lib/%{name}/%{name}
+/usr/lib/wiremock/wiremock
+/usr/lib/wiremock/mappings/503.json
+/usr/lib/wiremock/wiremock/wiremock.jar
+%dir %attr(0775, wiremock, wiremock) /usr/lib/wiremock/wiremock
 %if %{use_systemd}
-%{_unitdir}/%{name}.service
+%{_unitdir}/wiremock.service
 %endif
