@@ -3,7 +3,7 @@ Description=RPM for tool for mocking HTTP services
 After=network.target
 
 [Service]
-Type=simple
+Type=oneshot
 User=wiremock
 Group=wiremock
 StartLimitBurst=5
