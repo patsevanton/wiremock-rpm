@@ -1,0 +1,10 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/301"
+    },
+    "response": {
+        "status": 301,
+        "body": "301 Moved Permanently\n"
+    }
+}
