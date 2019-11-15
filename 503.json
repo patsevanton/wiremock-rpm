@@ -1,10 +1,2 @@
-{
-    "request": {
-        "method": "GET",
-        "url": "/503"
-    },
-    "response": {
-        "status": 503,
-        "body": "503 Service Unavailable\n"
-    }
-}
+
+test source
