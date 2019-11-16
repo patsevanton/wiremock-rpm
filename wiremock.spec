@@ -7,7 +7,6 @@ Group:   Development Tools
 License: ASL 2.0
 URL: http://repo1.maven.org/maven2/com/github/tomakehurst/wiremock-standalone/%{version}/wiremock-standalone-%{version}.jar
 Source0: wiremock.service
-Source1: 503.json
 Requires(pre): /usr/sbin/useradd, /usr/bin/getent, /usr/bin/echo, /usr/bin/chown
 Requires(postun): /usr/sbin/userdel
 BuildRequires: tree
@@ -24,10 +23,10 @@ BuildRequires: systemd
 WireMock is a simulator for HTTP-based APIs.
 Some might consider it a service virtualization tool or a mock server.
 
-%package _popular-json
+%package popular-json
 Summary: Popular JSON for WireMock.
 
-%description _popular-json
+%description popular-json
 Popular JSON for WireMock.
 
 %prep
@@ -40,7 +39,7 @@ tree
 %{__install} -m 0755 -d %{buildroot}/usr/lib/wiremock
 cp wiremock.jar %{buildroot}/usr/lib/wiremock/wiremock.jar
 %{__install} -m 0755 -d %{buildroot}/usr/lib/wiremock/mappings
-cp %{SOURCE1} %{buildroot}/usr/lib/wiremock/mappings
+cp *.json %{buildroot}/usr/lib/wiremock/mappings
 %if %{use_systemd}
 %{__mkdir} -p %{buildroot}%{_unitdir}
 %{__install} -m644 %{SOURCE0} \
@@ -73,6 +72,6 @@ cp %{SOURCE1} %{buildroot}/usr/lib/wiremock/mappings
 %{_unitdir}/wiremock.service
 %endif
 
-%files _popular-json
+%files popular-json
 %defattr(-,wiremock,wiremock)
-/usr/lib/wiremock/mappings/503.json
+/usr/lib/wiremock/mappings/*.json
