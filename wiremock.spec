@@ -1,6 +1,6 @@
 Name:    wiremock
 Version: 2.25.1
-Release: 7
+Release: 8
 Summary: RPM for tool for mocking HTTP services
 
 Group:   Development Tools
@@ -11,7 +11,7 @@ Source1: 503.json
 Requires(pre): /usr/sbin/useradd, /usr/bin/getent, /usr/bin/echo, /usr/bin/chown
 Requires(postun): /usr/sbin/userdel
 BuildRequires: tree
-Requires: java-1.8.0-openjdk
+Requires: java-openjdk
 
 # Use systemd for fedora >= 18, rhel >=7, SUSE >= 12 SP1 and openSUSE >= 42.1
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (!0%{?is_opensuse} && 0%{?suse_version} >=1210) || (0%{?is_opensuse} && 0%{?sle_version} >= 120100)
