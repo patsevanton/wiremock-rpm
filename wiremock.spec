@@ -1,6 +1,6 @@
 Name:    wiremock
 Version: 2.25.1
-Release: 12
+Release: 13
 Summary: Tool for mocking HTTP services
 
 Group:   Development Tools
@@ -48,7 +48,15 @@ tree
 %{__install} -m 0755 -d %{buildroot}/usr/lib/wiremock
 cp wiremock.jar %{buildroot}/usr/lib/wiremock/wiremock.jar
 %{__install} -m 0755 -d %{buildroot}/usr/lib/wiremock/mappings
-cp *.json %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE1} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE2} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE3} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE4} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE5} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE6} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE7} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE8} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE9} %{buildroot}/usr/lib/wiremock/mappings
 %if %{use_systemd}
 %{__mkdir} -p %{buildroot}%{_unitdir}
 %{__install} -m644 %{SOURCE0} \
@@ -83,12 +91,4 @@ cp *.json %{buildroot}/usr/lib/wiremock/mappings
 
 %files popular-json
 %defattr(-,wiremock,wiremock)
-cp %{SOURCE1} %{buildroot}/usr/lib/wiremock/mappings
-cp %{SOURCE2} %{buildroot}/usr/lib/wiremock/mappings
-cp %{SOURCE3} %{buildroot}/usr/lib/wiremock/mappings
-cp %{SOURCE4} %{buildroot}/usr/lib/wiremock/mappings
-cp %{SOURCE5} %{buildroot}/usr/lib/wiremock/mappings
-cp %{SOURCE6} %{buildroot}/usr/lib/wiremock/mappings
-cp %{SOURCE7} %{buildroot}/usr/lib/wiremock/mappings
-cp %{SOURCE8} %{buildroot}/usr/lib/wiremock/mappings
-cp %{SOURCE9} %{buildroot}/usr/lib/wiremock/mappings
+/usr/lib/wiremock/mappings/*
