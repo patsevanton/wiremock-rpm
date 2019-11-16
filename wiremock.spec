@@ -1,12 +1,21 @@
 Name:    wiremock
 Version: 2.25.1
-Release: 11
+Release: 12
 Summary: Tool for mocking HTTP services
 
 Group:   Development Tools
 License: ASL 2.0
 URL: http://repo1.maven.org/maven2/com/github/tomakehurst/wiremock-standalone/%{version}/wiremock-standalone-%{version}.jar
 Source0: wiremock.service
+Source1: 204.json
+Source2: 301.json
+Source3: 302.json
+Source4: 304.json
+Source5: 400.json
+Source6: 401.json
+Source7: 403.json
+Source8: 404.json
+Source9: 503.json
 Requires(pre): /usr/sbin/useradd, /usr/bin/getent, /usr/bin/echo, /usr/bin/chown
 Requires(postun): /usr/sbin/userdel
 BuildRequires: tree
@@ -74,4 +83,12 @@ cp *.json %{buildroot}/usr/lib/wiremock/mappings
 
 %files popular-json
 %defattr(-,wiremock,wiremock)
-/usr/lib/wiremock/mappings/*.json
+cp %{SOURCE1} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE2} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE3} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE4} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE5} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE6} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE7} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE8} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE9} %{buildroot}/usr/lib/wiremock/mappings
