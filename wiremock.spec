@@ -1,6 +1,6 @@
 Name:    wiremock
 Version: 2.25.1
-Release: 14
+Release: 15
 Summary: Tool for mocking HTTP services
 
 Group:   Development Tools
@@ -15,7 +15,11 @@ Source5: 400.json
 Source6: 401.json
 Source7: 403.json
 Source8: 404.json
-Source9: 503.json
+Source9: 405.json
+Source10: 408.json
+Source11: 500.json
+Source12: 502.json
+Source13: 503.json
 Requires(pre): /usr/sbin/useradd, /usr/bin/getent, /usr/bin/echo, /usr/bin/chown
 Requires(postun): /usr/sbin/userdel
 BuildRequires: tree
@@ -57,6 +61,10 @@ cp %{SOURCE6} %{buildroot}/usr/lib/wiremock/mappings
 cp %{SOURCE7} %{buildroot}/usr/lib/wiremock/mappings
 cp %{SOURCE8} %{buildroot}/usr/lib/wiremock/mappings
 cp %{SOURCE9} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE10} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE11} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE12} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE13} %{buildroot}/usr/lib/wiremock/mappings
 %if %{use_systemd}
 %{__mkdir} -p %{buildroot}%{_unitdir}
 %{__install} -m644 %{SOURCE0} \
