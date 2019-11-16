@@ -1,28 +1,28 @@
 Name:    wiremock
 Version: 2.25.1
-Release: 15
+Release: 16
 Summary: Tool for mocking HTTP services
 
 Group:   Development Tools
 License: ASL 2.0
 URL: http://repo1.maven.org/maven2/com/github/tomakehurst/wiremock-standalone/%{version}/wiremock-standalone-%{version}.jar
 Source0: wiremock.service
-Source1: 204.json
-Source2: 301.json
-Source3: 302.json
-Source4: 304.json
-Source5: 400.json
-Source6: 401.json
-Source7: 403.json
-Source8: 404.json
-Source9: 405.json
-Source10: 408.json
-Source11: 500.json
-Source12: 502.json
-Source13: 503.json
+Source1: 102.json
+Source2: 204.json
+Source3: 301.json
+Source4: 302.json
+Source5: 304.json
+Source6: 400.json
+Source7: 401.json
+Source8: 403.json
+Source9: 404.json
+Source10: 405.json
+Source11: 408.json
+Source12: 500.json
+Source13: 502.json
+Source14: 503.json
 Requires(pre): /usr/sbin/useradd, /usr/bin/getent, /usr/bin/echo, /usr/bin/chown
 Requires(postun): /usr/sbin/userdel
-BuildRequires: tree
 Requires: java-openjdk
 
 # Use systemd for fedora >= 18, rhel >=7, SUSE >= 12 SP1 and openSUSE >= 42.1
@@ -46,9 +46,6 @@ Popular JSON for WireMock.
 curl -L %{url} > wiremock.jar
 
 %install
-ls
-pwd
-tree
 %{__install} -m 0755 -d %{buildroot}/usr/lib/wiremock
 cp wiremock.jar %{buildroot}/usr/lib/wiremock/wiremock.jar
 %{__install} -m 0755 -d %{buildroot}/usr/lib/wiremock/mappings
@@ -65,6 +62,7 @@ cp %{SOURCE10} %{buildroot}/usr/lib/wiremock/mappings
 cp %{SOURCE11} %{buildroot}/usr/lib/wiremock/mappings
 cp %{SOURCE12} %{buildroot}/usr/lib/wiremock/mappings
 cp %{SOURCE13} %{buildroot}/usr/lib/wiremock/mappings
+cp %{SOURCE14} %{buildroot}/usr/lib/wiremock/mappings
 %if %{use_systemd}
 %{__mkdir} -p %{buildroot}%{_unitdir}
 %{__install} -m644 %{SOURCE0} \

@@ -1,0 +1,10 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/102"
+    },
+    "response": {
+        "status": 102,
+        "body": "102 Processing\n"
+    }
+}
