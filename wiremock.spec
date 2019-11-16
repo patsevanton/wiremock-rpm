@@ -1,7 +1,7 @@
 Name:    wiremock
 Version: 2.25.1
-Release: 9
-Summary: RPM for tool for mocking HTTP services
+Release: 10
+Summary: Tool for mocking HTTP services
 
 Group:   Development Tools
 License: ASL 2.0
@@ -21,7 +21,14 @@ BuildRequires: systemd
 %endif
 
 %description
-WireMock is a simulator for HTTP-based APIs. Some might consider it a service virtualization tool or a mock server.
+WireMock is a simulator for HTTP-based APIs.
+Some might consider it a service virtualization tool or a mock server.
+
+%package wiremock-popular-json
+Summary: headers for library
+
+%description wiremock-popular-json
+Popular JSON for WireMock.
 
 %prep
 curl -L %{url} > wiremock.jar
@@ -61,8 +68,11 @@ cp %{SOURCE1} %{buildroot}/usr/lib/wiremock/mappings
 
 %files
 %dir %attr(0775, wiremock, wiremock) /usr/lib/wiremock
-/usr/lib/wiremock/mappings/503.json
 /usr/lib/wiremock/wiremock.jar
 %if %{use_systemd}
 %{_unitdir}/wiremock.service
 %endif
+
+%files wiremock-popular-json
+%defattr(-,wiremock,wiremock)
+/usr/lib/wiremock/mappings/503.json
