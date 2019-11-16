@@ -1,6 +1,6 @@
 Name:    wiremock
 Version: 2.25.1
-Release: 13
+Release: 14
 Summary: Tool for mocking HTTP services
 
 Group:   Development Tools

@@ -1,10 +1,10 @@
 {
     "request": {
         "method": "GET",
-        "url": "/301"
+        "url": "/302"
     },
     "response": {
-        "status": 301,
-        "body": "301 Found\n"
+        "status": 302,
+        "body": "302 Found\n"
     }
 }
