@@ -6,6 +6,7 @@ After=network.target
 Type=simple
 User=wiremock
 Group=wiremock
+WorkingDirectory=/usr/lib/wiremock
 ExecStart=/usr/bin/java -jar /usr/lib/wiremock/wiremock.jar
 ExecStop=/bin/kill -s SIGTERM $MAINPID
 ExecReload=/bin/kill -HUP $MAINPID
